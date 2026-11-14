@@ -1,1 +1,85 @@
-<?xml version="1.0" encoding="UTF-8"?><?import javafx.scene.control.*?><?import javafx.scene.layout.*?><BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.supportsphere.controller.VolunteerDashboardController"><top><HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="18"><Label text="SupportSphere" styleClass="brand"/><Label text="Volunteer" styleClass="role-pill"/><Region HBox.hgrow="ALWAYS"/><Button text="🔔" onAction="#notifications" styleClass="icon-button"/><Label fx:id="notificationCount" text="0" styleClass="notification-count"/><Button text="Sign out" onAction="#logout" styleClass="ghost-button"/></HBox></top><center><VBox styleClass="page" spacing="18"><VBox><Label fx:id="welcome" text="Good day 👋" styleClass="page-title"/><Label text="Here are assistance requests that match your skills, location and availability." styleClass="muted"/></VBox><HBox spacing="14"><VBox styleClass="stat-card" HBox.hgrow="ALWAYS"><Label text="Your rating" styleClass="stat-label"/><Label fx:id="rating" text="0.0 ★" styleClass="stat-number"/></VBox><VBox styleClass="stat-card" HBox.hgrow="ALWAYS"><Label text="Verification" styleClass="stat-label"/><Label fx:id="verification" text="PENDING" styleClass="stat-number small"/></VBox><VBox styleClass="stat-card" HBox.hgrow="ALWAYS"><Label text="Assigned" styleClass="stat-label"/><Label fx:id="assignedCount" text="0" styleClass="stat-number"/></VBox><VBox styleClass="stat-card" HBox.hgrow="ALWAYS"><Label text="Active now" styleClass="stat-label"/><Label fx:id="activeCount" text="0" styleClass="stat-number"/></VBox></HBox><VBox styleClass="card"><Label text="Your profile" styleClass="section-title"/><HBox spacing="18"><Label fx:id="skills" text="Skills" styleClass="profile-chip"/><Label fx:id="available" text="Availability" styleClass="profile-chip"/></HBox></VBox><HBox spacing="10"><Button text="Accept selected" onAction="#accept" styleClass="primary-button"/><Button text="Start next task" onAction="#start" styleClass="secondary-button"/><Button text="Complete next task" onAction="#complete" styleClass="secondary-button"/><Button text="My task history" onAction="#viewMyTasks" styleClass="secondary-button"/></HBox><VBox styleClass="card" VBox.vgrow="ALWAYS"><Label text="Recommended assistance" styleClass="section-title"/><TableView fx:id="table" VBox.vgrow="ALWAYS"><columns><TableColumn fx:id="idCol" text="Request" prefWidth="90"/><TableColumn fx:id="taskCol" text="Task" prefWidth="190"/><TableColumn fx:id="locationCol" text="Location" prefWidth="190"/><TableColumn fx:id="urgencyCol" text="Priority" prefWidth="110"/><TableColumn fx:id="dateCol" text="Schedule" prefWidth="180"/><TableColumn fx:id="matchCol" text="Compatibility" prefWidth="130"/></columns></TableView></VBox></VBox></center></BorderPane>
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.supportsphere.controller.VolunteerDashboardController">
+    <top>
+        <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="18">
+            <Label text="SupportSphere" styleClass="brand"/>
+            <Label text="Volunteer" styleClass="role-pill"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="🔔" onAction="#notifications" styleClass="icon-button"/>
+            <Label fx:id="notificationCount" text="0" styleClass="notification-count"/>
+            <Button text="Sign out" onAction="#logout" styleClass="ghost-button"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox styleClass="page" spacing="14">
+            <VBox>
+                <Label fx:id="welcome" text="Good day 👋" styleClass="page-title"/>
+                <Label text="Here are assistance requests that match your skills, location and availability." styleClass="muted"/>
+            </VBox>
+            <HBox spacing="14">
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"><Label text="Your rating" styleClass="stat-label"/><Label fx:id="rating" text="0.0 ★" styleClass="stat-number"/></VBox>
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"><Label text="Verification" styleClass="stat-label"/><Label fx:id="verification" text="PENDING" styleClass="stat-number small"/></VBox>
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"><Label text="Assigned" styleClass="stat-label"/><Label fx:id="assignedCount" text="0" styleClass="stat-number"/></VBox>
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS"><Label text="Active now" styleClass="stat-label"/><Label fx:id="activeCount" text="0" styleClass="stat-number"/></VBox>
+            </HBox>
+            <VBox styleClass="card">
+                <Label text="Your profile" styleClass="section-title"/>
+                <HBox spacing="18"><Label fx:id="skills" text="Skills" styleClass="profile-chip"/><Label fx:id="available" text="Availability" styleClass="profile-chip"/></HBox>
+            </VBox>
+            <HBox spacing="10">
+                <Button fx:id="acceptButton" text="Accept selected" onAction="#accept" styleClass="primary-button"/>
+                <Button fx:id="detailsButton" text="View details" onAction="#details" styleClass="secondary-button"/>
+                <Button fx:id="startButton" text="Start selected" onAction="#start" styleClass="secondary-button"/>
+                <Button fx:id="completeButton" text="Complete selected" onAction="#complete" styleClass="secondary-button"/>
+                <Button text="Refresh tasks" onAction="#viewMyTasks" styleClass="secondary-button"/>
+            </HBox>
+            <TabPane fx:id="taskTabs" VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE" prefHeight="330" styleClass="task-tabs">
+                <Tab text="Recommended Tasks">
+                    <VBox styleClass="card" spacing="8">
+                        <Label text="Available assistance requests" styleClass="section-title"/>
+                        <TableView fx:id="table" prefHeight="300" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="idCol" text="Request" prefWidth="90"/>
+                                <TableColumn fx:id="taskCol" text="Task" prefWidth="190"/>
+                                <TableColumn fx:id="locationCol" text="Location" prefWidth="190"/>
+                                <TableColumn fx:id="urgencyCol" text="Priority" prefWidth="110"/>
+                                <TableColumn fx:id="dateCol" text="Schedule" prefWidth="180"/>
+                                <TableColumn fx:id="matchCol" text="Compatibility" prefWidth="130"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </Tab>
+                <Tab text="My Active Tasks">
+                    <VBox styleClass="card" spacing="8">
+                        <Label text="Accepted tasks" styleClass="section-title"/>
+                        <TableView fx:id="tasksTable" prefHeight="300" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="myIdCol" text="Request" prefWidth="90"/>
+                                <TableColumn fx:id="myTaskCol" text="Task" prefWidth="180"/>
+                                <TableColumn fx:id="myStatusCol" text="Status" prefWidth="130"/>
+                                <TableColumn fx:id="myDateCol" text="Schedule" prefWidth="190"/>
+                                <TableColumn fx:id="myLocationCol" text="Location" prefWidth="180"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </Tab>
+                <Tab text="Task History">
+                    <VBox styleClass="card" spacing="8">
+                        <Label text="Completed and cancelled tasks" styleClass="section-title"/>
+                        <TableView fx:id="historyTable" prefHeight="300" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="historyIdCol" text="Request" prefWidth="90"/>
+                                <TableColumn fx:id="historyTaskCol" text="Task" prefWidth="180"/>
+                                <TableColumn fx:id="historyStatusCol" text="Status" prefWidth="130"/>
+                                <TableColumn fx:id="historyDateCol" text="Schedule" prefWidth="190"/>
+                                <TableColumn fx:id="historyLocationCol" text="Location" prefWidth="180"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </Tab>
+            </TabPane>
+        </VBox>
+    </center>
+</BorderPane>
