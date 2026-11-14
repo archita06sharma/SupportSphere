@@ -1,0 +1,1 @@
+package com.supportsphere.model; public enum Urgency { LOW, MEDIUM, HIGH, EMERGENCY }

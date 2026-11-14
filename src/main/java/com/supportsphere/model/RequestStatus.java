@@ -1,0 +1,1 @@
+package com.supportsphere.model; public enum RequestStatus { OPEN, ASSIGNED, IN_PROGRESS, COMPLETED, CANCELLED, EXPIRED }

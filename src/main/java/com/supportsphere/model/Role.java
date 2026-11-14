@@ -1,0 +1,1 @@
+package com.supportsphere.model; public enum Role { REQUESTER, VOLUNTEER, ADMIN }

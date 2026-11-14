@@ -1,0 +1,1 @@
+package com.supportsphere.model; public record Feedback(int requestId,int requesterId,int volunteerId,int rating,String comment) {}

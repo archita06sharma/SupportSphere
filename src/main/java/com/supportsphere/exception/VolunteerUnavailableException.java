@@ -1,0 +1,1 @@
+package com.supportsphere.exception; public class VolunteerUnavailableException extends Exception { public VolunteerUnavailableException(String m){super(m);} }

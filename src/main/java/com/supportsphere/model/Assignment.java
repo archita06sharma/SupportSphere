@@ -1,0 +1,1 @@
+package com.supportsphere.model; public record Assignment(int assignmentId,int requestId,int volunteerId,String status,String volunteerName) {}

@@ -1,0 +1,1 @@
+package com.supportsphere.exception; public class AssignmentException extends Exception { public AssignmentException(String m){super(m);} }

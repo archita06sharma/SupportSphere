@@ -1,0 +1,1 @@
+package com.supportsphere.model; public class Requester extends User { public Requester(int id,String n,String e,String p,String a,String c,String l){super(id,n,e,p,Role.REQUESTER,a,c,l);} public String getDashboardType(){return "Requester Dashboard";} }

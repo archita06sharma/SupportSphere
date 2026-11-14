@@ -1,0 +1,1 @@
+package com.supportsphere; import com.supportsphere.util.*; import javafx.application.Application; import javafx.stage.Stage; public class MainApp extends Application {public void start(Stage stage)throws Exception{SceneManager.init(stage);SceneManager.show("login.fxml","SupportSphere — Accessible Assistance & Task Coordination");} public static void main(String[]a){launch(a);} }

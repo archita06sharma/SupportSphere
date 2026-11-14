@@ -1,0 +1,1 @@
+package com.supportsphere.dao; import java.util.*; public interface DAO<T,ID> { Optional<T> findById(ID id) throws Exception; List<T> findAll() throws Exception; }

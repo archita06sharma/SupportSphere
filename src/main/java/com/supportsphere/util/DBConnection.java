@@ -1,0 +1,1 @@
+package com.supportsphere.util; import com.supportsphere.config.AppConfig; import java.sql.*; public final class DBConnection { private DBConnection(){} public static Connection getConnection() throws SQLException { return DriverManager.getConnection(AppConfig.get("db.url"),AppConfig.get("db.user"),AppConfig.get("db.password")); } }

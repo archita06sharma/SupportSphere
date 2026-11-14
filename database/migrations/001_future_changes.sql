@@ -1,0 +1,1 @@
+-- Reserved for future non-destructive migrations. The clean project schema is in ../schema.sql.

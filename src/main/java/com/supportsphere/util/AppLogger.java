@@ -1,0 +1,1 @@
+package com.supportsphere.util; import java.io.*; import java.util.logging.*; public final class AppLogger { public static final Logger LOG=Logger.getLogger("SupportSphere"); static { try(InputStream in=AppLogger.class.getResourceAsStream("/logging.properties")){if(in!=null)LogManager.getLogManager().readConfiguration(in);}catch(Exception ignored){}} private AppLogger(){} }
