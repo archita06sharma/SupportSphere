@@ -11,7 +11,7 @@ import javafx.scene.control.*;
 import java.util.*;
 
 public class VolunteerDashboardController {
-    @FXML Label welcome, rating, verification, skills, available, assignedCount, activeCount, notificationCount;
+    @FXML Label welcome, rating, verification, skills, available, rejectionReason, assignedCount, activeCount, notificationCount;
     @FXML Button acceptButton, detailsButton, startButton, completeButton;
     @FXML TableView<AssistanceRequest> table;
     @FXML TableColumn<AssistanceRequest, String> idCol, taskCol, locationCol, urgencyCol, dateCol, matchCol;
@@ -61,6 +61,8 @@ public class VolunteerDashboardController {
             welcome.setText("Good day, " + volunteer.getName().split(" ")[0] + " 👋");
             rating.setText(String.format("%.1f ★ (%d)", volunteer.getRating(), volunteer.getRatingCount()));
             verification.setText(volunteer.getVerificationStatus());
+            rejectionReason.setText(volunteer.getRejectionReason() == null || volunteer.getRejectionReason().isBlank()
+                    ? "" : "Application note: " + volunteer.getRejectionReason());
             skills.setText(String.join(" · ", volunteer.getSkills()));
             available.setText(volunteer.getAvailabilityStart() + " – " + volunteer.getAvailabilityEnd());
 

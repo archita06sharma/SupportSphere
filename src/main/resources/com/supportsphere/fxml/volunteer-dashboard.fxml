@@ -26,7 +26,7 @@
             </HBox>
             <VBox styleClass="card">
                 <Label text="Your profile" styleClass="section-title"/>
-                <HBox spacing="18"><Label fx:id="skills" text="Skills" styleClass="profile-chip"/><Label fx:id="available" text="Availability" styleClass="profile-chip"/></HBox>
+                <HBox spacing="18"><Label fx:id="skills" text="Skills" styleClass="profile-chip"/><Label fx:id="available" text="Availability" styleClass="profile-chip"/><Label fx:id="rejectionReason" styleClass="muted" wrapText="true"/></HBox>
             </VBox>
             <HBox spacing="10">
                 <Button fx:id="acceptButton" text="Accept selected" onAction="#accept" styleClass="primary-button"/>
